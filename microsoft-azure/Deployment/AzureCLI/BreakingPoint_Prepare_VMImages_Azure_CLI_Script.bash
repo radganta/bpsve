@@ -5,7 +5,7 @@ if [ -z $1 ]; then
     echo "BreakingPoint_Azure.bash <destination-resource-group-name> <destination-storage-account-name>"
     echo "<destination-resource-group-name> must be preexistent and will store the virtual machine images. Rule is to be alphanumeric, underscore, parentheses, hyphen, period (except at end)"
     echo "<destination-storage-account-name> length 3 to 24 chars, numbers and lower-case letters only."
-    echo "ex: ./BreakingPoint_Prepare_VMImages_Azure_CLI_Script.bash Ixia_Images_RG bpsvhds910u3"
+    echo "ex: ./BreakingPoint_Prepare_VMImages_Azure_CLI_Script.bash Ixia_Images_RG bpsvhds920"
     exit 1
 fi
 
@@ -14,7 +14,7 @@ if [ -z $2 ]; then
     echo "BreakingPoint_Azure.bash <destination-resource-group-name> <destination-storage-account-name>"
     echo "<destination-resource-group-name> must be preexistent and will store the virtual machine images"
     echo "<destination-storage-account-name> length 3 to 24 alphanumeric lowercase only and unique across azure universe. Needed for storing the vhd files."
-    echo "ex: ./BreakingPoint_Prepare_VMImages_Azure_CLI_Script.bash Ixia_Images_RG bpsvhds910u3"
+    echo "ex: ./BreakingPoint_Prepare_VMImages_Azure_CLI_Script.bash Ixia_Images_RG bpsvhds920"
     exit 1
 fi
 
@@ -30,19 +30,19 @@ then
 fi
 
 #source
-source_bps_virtual_controller_blob=Ixia_BreakingPoint_Virtual_Controller_9.10.110_KVM.vhd
-source_bps_virtual_blade_blob=Ixia_BreakingPoint_Virtual_Blade_9.10.110_KVM.vhd
-source_bps_virtual_controller_account_name=bpsve910u3
+source_bps_virtual_controller_blob=Ixia_BreakingPoint_Virtual_Controller_9.20.115_KVM.vhd
+source_bps_virtual_blade_blob=Ixia_BreakingPoint_Virtual_Blade_9.20.115_KVM.vhd
+source_bps_virtual_controller_account_name=bpsve920
 source_bps_virtual_controller_container=bps-container
 source_bps_virtual_blade_container=bps-container 
-source_bps_virtual_controller_account_key=wsOuiQxkUJvPJMIyMqRAwhPDypSJYIx8MUyAjE+5LMqbXWWL++Dk5+85eq3wusliIFLJugK7xX+PTn+kbfmFwA==
+source_bps_virtual_controller_account_key=oEag+F+a8UH1Wzly4/badf6bLZhUOZm2ydni0e+5yT0TNDm3JBVG/oFOI2JtMBTekN88hQ+ShrtbtdGAgPr0Dw==
 
 #destination
 destination_resource_group_name=$1
 destination_account_name=$2
-destination_container_name=bpsvevhd910u3
-destination_bps_virtual_controller_blob=Ixia_BreakingPoint_Virtual_Controller_9.10.u3.vhd
-destination_bps_virtual_blade_blob=Ixia_BreakingPoint_Virtual_Blade_9.10.u3.vhd
+destination_container_name=bpsvevhd920
+destination_bps_virtual_controller_blob=Ixia_BreakingPoint_Virtual_Controller_9.20.vhd
+destination_bps_virtual_blade_blob=Ixia_BreakingPoint_Virtual_Blade_9.20.vhd
 destination_bps_virtual_controller_vmImage=$(basename $destination_bps_virtual_controller_blob .vhd)
 destination_bps_bps_virtual_blade_vmImage=$(basename $destination_bps_virtual_blade_blob .vhd)
 
